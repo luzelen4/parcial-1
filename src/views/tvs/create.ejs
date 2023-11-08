@@ -1,0 +1,46 @@
+
+<%- include('../layouts/header',{title: 'tvs list'}); -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-success text-center"> Crear un nuevo tv</h1>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-12">
+                <form action="/tvs" method="post" class="row">
+                    <div class="col-6">
+                        <label for="marca" class="form-label">Marca</label>
+                        <input type="text" name="marca" id="marca" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="modelo" class="form-label">Referencia</label>
+                        <input type="text" name="referencia" id="referencia" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="compra" class="form-label">modelo</label>
+                        <input type="number" name="modelo" id="compra" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="color" class="form-label">Color</label>
+                        <input type="text" name="color" id="color" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="compra" class="form-label">pulgadas</label>
+                        <input type="number" name="pulgadas" id="pulgadas" class="form-control" required>
+                    </div>
+
+                    <div class="col-12 d-grid mt-4">
+                        <button type="submit" class="btn btn-outline-succes">Crear</button>
+                    </div>
+
+        </div>
+            <div class="row">
+                <div class="col-12 d-grid mt-4">
+                    <a href="/tvs" class="btn btn-outline-secondary">
+                        Volver a la lista de los tvs
+                        </a>
+         </div>
+    </div>
+
+    <%- include('../layouts/footer'); -%>

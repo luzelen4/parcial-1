@@ -1,0 +1,60 @@
+<%- include('../layouts/header',{title: 'tvs list'}); -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="alert alert-success text-center">LISTA DE TELEVISORES</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">MARCA</th>
+                            <th scope="col">REFERENCIA</th>
+                            <th scope="col">MODELO</th>
+                            <th scope="col">COLOR</th>
+                            <th scope="col">PULGADAS</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% tvs.map( tv => { %>
+                            <tr>
+                                <th scope="row"><%= tv.id %></th>
+                                <td><%= tv.marca%></td>
+                                <td><%= tv.referencia %></td>
+                                <td><%= tv.modelo %></td>
+                                <td><%= tv.color %></td>
+                                <td><%= tv.pulgadas %></td>
+                                <td align="center"><a href="/pdf/${tv.id}" target="_blank" class="btn btn-info">Descargar PDF</a></td>
+                                <td align="center">
+                                  <form action="/tvs/Delete/<%=tv.id%>" method="post"
+                                    onsubmit= "return confirm('Está seguro de borrar el registro?');"
+                                    >
+                                  <button type="submit" class="btn btn-danger">BORRAR</button>
+                                </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-grid">
+                <a href="/tvs/create" class="btn btn-outline-secondary">
+                    Crear un nuevo tv
+                </a>
+            </div>
+        </div>
+        <br>
+        <form class="d-flex" role="search" action="/tvs" method="GET">
+            <input class="form-control me-2" type="search" placeholder="¿Qué televisor busca?" aria-label="Search" id="filtro" name="filtro">
+            <button class="btn btn-outline-success" type="submit" id="btnBuscar">Buscar</button>
+          </form>
+    </div>
+
+    <%- include('../layouts/footer'); -%>
+   
